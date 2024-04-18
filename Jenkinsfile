@@ -45,7 +45,7 @@ pipeline {
 
         stage('Pushing to Dockerhub') {
             steps {
-                sh 'docker push heshamsakr106/ausf:tagname'
+                sh 'docker push abodiaa/ausf:latest'
             }
         }
         stage('Build and Package Helm Chart') {
