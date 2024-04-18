@@ -45,7 +45,7 @@ pipeline {
 
         stage('Pushing to Dockerhub') {
             steps {
-                sh 'docker push abodiaa/ausf:latest'
+                sh 'docker push heshamsakr106/ausf:latest'
             }
         }
         stage('Build and Package Helm Chart') {
@@ -60,7 +60,7 @@ pipeline {
         }
         stage('Deploy Helm Chart on EKS') {
             steps {
-                sh 'helm upgrade --install amf ./helm/'
+                sh 'helm upgrade --install ausf ./helm/'
             }
         }
     }
@@ -68,7 +68,7 @@ pipeline {
         always {
             // Archiving Test Result
             archiveArtifacts artifacts: 'trivy-report.json', fingerprint: true
-            sh 'docker rmi abodiaa/ausf:latest'
+            sh 'docker rmi heshamsakr106/ausf:latest'
             sh 'docker rmi abodiaa/ausf-base:latest'
         }
     }
