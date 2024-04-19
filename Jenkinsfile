@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Scan Image for Common Vulnerabilities and Exposures') {
             steps {
-                sh 'docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image abodiaa/ausf:latest '
+                sh 'docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image abodiaa/ausf:latest --output /docker.sock/trivy-report.json'
             }
         }
 
