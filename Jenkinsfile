@@ -50,7 +50,7 @@ pipeline {
         }
         stage('Build and Package Helm Chart') {
             steps {
-                sh 'helm package .Desktop/ausf/ausf/helm/'
+                sh 'helm package Desktop/ausf/ausf/helm/'
             }
         }
         stage('Configure Kubernetes Context') {
